@@ -1,61 +1,137 @@
 * {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
   margin: 0;
-  background: #0f172a;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.screen {
-  display: none;
-  height: 100vh;
-  padding: 20px;
+/* BODY */
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e5e7eb;
+  min-height: 100vh;
 }
 
-.screen.active {
-  display: block;
+/* APP */
+#app {
+  min-height: 100vh;
 }
 
 /* LOGIN */
-#loginScreen {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-/* HEADER */
-header {
-  height: 50px;
+.login-box {
+  max-width: 380px;
+  margin: auto;
+  margin-top: 15vh;
   background: #020617;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: fadeIn 0.4s ease;
 }
 
-/* SIDE MENU */
-#sideMenu {
-  position: fixed;
-  top: 50px;
-  left: -70%;
-  width: 70%;
-  height: calc(100% - 50px);
+.login-box h1 {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
   background: #020617;
-  transition: 0.3s;
-  padding: 10px;
+  color: #fff;
 }
 
-#sideMenu.open {
-  left: 0;
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #2563eb;
+}
+
+.helper-text {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 /* MAIN */
-#mainPanel {
-  margin-top: 50px;
-  padding: 10px;
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+.hamburger {
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: white;
+}
+
+.logout {
+  background: #ef4444;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: white;
+}
+
+/* CONTENT */
+.content {
+  padding: 24px;
+}
+
+.action-btn {
+  margin-top: 12px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: #1e293b;
+  color: #fff;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background: #334155;
+}
+
+/* HIDDEN */
+.hidden {
+  display: none;
+}
+
+/* ANIM */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
