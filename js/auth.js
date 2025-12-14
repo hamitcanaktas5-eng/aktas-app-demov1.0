@@ -1,10 +1,10 @@
 function login() {
-  const user = document.getElementById("loginUser").value;
-  const pass = document.getElementById("loginPass").value;
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
 
   if (user === "admin" && pass === "admin") {
     localStorage.setItem("loggedIn", "true");
-    showApp();
+    showMain();
   } else {
     alert("Hatalı giriş");
   }
@@ -12,16 +12,15 @@ function login() {
 
 function logout() {
   localStorage.removeItem("loggedIn");
-  location.reload();
+  showLogin();
 }
 
-function showApp() {
-  document.getElementById("loginScreen").classList.remove("active");
-  document.getElementById("appScreen").classList.add("active");
+function showMain() {
+  document.getElementById("loginScreen").classList.add("hidden");
+  document.getElementById("mainScreen").classList.remove("hidden");
 }
 
-window.onload = () => {
-  if (localStorage.getItem("loggedIn")) {
-    showApp();
-  }
-};
+function showLogin() {
+  document.getElementById("mainScreen").classList.add("hidden");
+  document.getElementById("loginScreen").classList.remove("hidden");
+}
