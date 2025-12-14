@@ -2,49 +2,56 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Aktaş App – Demo v1.0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aktaş App - Demo v1.0</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
+<div id="app">
+
   <!-- LOGIN -->
-  <div id="loginScreen" class="screen active">
+  <div id="loginScreen" class="login-box">
     <h1>Demo v1.0</h1>
-    <input id="loginUser" placeholder="Kullanıcı adı">
-    <input id="loginPass" type="password" placeholder="Şifre">
+
+    <input type="text" id="username" placeholder="Kullanıcı adı">
+    <input type="password" id="password" placeholder="Şifre">
+
     <button onclick="login()">Giriş</button>
+
+    <div class="helper-text">
+      Giriş: <b>admin / admin</b>
+    </div>
   </div>
 
-  <!-- APP -->
-  <div id="appScreen" class="screen">
+  <!-- ANA EKRAN -->
+  <div id="mainScreen" class="main hidden">
 
-    <!-- HEADER -->
-    <header>
-      <button id="menuBtn">☰</button>
-      <span id="currentTitle">Ana Ekran</span>
-      <button onclick="logout()">Çıkış</button>
-    </header>
-
-    <!-- SOL PANEL -->
-    <aside id="sideMenu">
-      <button id="addChannel">+ Kanal (test)</button>
-      <div id="channelList"></div>
-      <button id="supportBtn">Destek</button>
-    </aside>
+    <!-- ÜST BAR -->
+    <div class="topbar">
+      <button class="hamburger">☰</button>
+      <div class="title">Ana Ekran</div>
+      <button class="logout" onclick="logout()">Çıkış</button>
+    </div>
 
     <!-- ORTA PANEL -->
-    <main id="mainPanel">
+    <div class="content">
+      <h2>Hoş geldin 👋</h2>
       <p>Bir kanal seç veya oluştur.</p>
-    </main>
+
+      <button class="action-btn">+ Kanal (test)</button>
+      <button class="action-btn">Destek</button>
+    </div>
 
   </div>
 
-  <!-- JS -->
-  <script src="js/auth.js"></script>
-  <script src="js/app.js"></script>
+</div>
+
+<!-- JS -->
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
