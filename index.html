@@ -1,0 +1,188 @@
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <h2>Aktaş App</h2>
+    <p class="muted">Demo v1.0</p>
+
+    <input id="loginUser" placeholder="Kullanıcı adı (admin, @ali vb.)">
+    <input id="loginPass" type="password" placeholder="Şifre">
+    <button id="loginBtn">Giriş</button>
+
+    <div class="row">
+      <button id="loginSupportBtn" class="secondary">Destek / Şifremi Unuttum</button>
+      <button id="openRegisterBtn" class="secondary">Yeni hesap oluştur</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <button id="hamburger">☰</button>
+    <span class="top-title" id="topTitle">Aktaş App</span>
+  </div>
+
+  <!-- CENTER -->
+  <div class="center">
+    <!-- WELCOME -->
+    <div id="welcomeView">
+      <div class="logo">AKTAŞ</div>
+      <h3>Hoş Geldin</h3>
+      <p>Bir kanal, DM veya destek seç.</p>
+    </div>
+
+    <!-- CHAT -->
+    <div id="chatView">
+      <div id="chatHeader"></div>
+      <div id="chat"></div>
+
+      <div id="inputBox">
+        <input id="msgInput" placeholder="Mesaj yaz...">
+        <button id="sendBtn">Gönder</button>
+      </div>
+
+      <div id="lockedHint">
+        Destek talebin iletildi. Admin yanıtlayana kadar mesajlaşma kapalı.
+      </div>
+    </div>
+
+    <!-- ADMIN PANEL VIEW -->
+    <div id="adminView">
+      <div class="viewHeader">
+        <button class="backBtn" id="adminBackBtn">←</button>
+        <span>Admin Paneli</span>
+      </div>
+
+      <div class="adminGrid">
+        <button class="cardBtn" id="adminUsersBtn">Kullanıcılar</button>
+        <button class="cardBtn disabled" disabled>Kanallar (Pasif)</button>
+        <button class="cardBtn disabled" disabled>Bilgilendirme (Pasif)</button>
+        <button class="cardBtn disabled" disabled>Site Aç/Kapa (Pasif)</button>
+      </div>
+    </div>
+
+    <!-- USERS VIEW -->
+    <div id="usersView">
+      <div class="viewHeader">
+        <button class="backBtn" id="usersBackBtn">←</button>
+        <span>Kullanıcılar</span>
+      </div>
+
+      <div class="split">
+        <div class="list" id="usersList"></div>
+        <div class="detail" id="userDetail">
+          <div class="muted">Bir kullanıcı seç.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT INBOX (ADMIN) -->
+    <div id="supportInboxView">
+      <div class="viewHeader">
+        <button class="backBtn" id="supportInboxBackBtn">←</button>
+        <span>Destek Kutusu (Admin)</span>
+      </div>
+
+      <div class="split">
+        <div class="list" id="ticketList"></div>
+        <div class="detail" id="ticketDetail">
+          <div class="muted">Bir ticket seç.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOL PANEL -->
+  <div id="sideMenu">
+    <div class="side-top">
+      <button class="add-channel" id="addChannelBtn">＋</button>
+      <button class="dm-btn" id="dmBtn">✉️</button>
+    </div>
+
+    <!-- CHANNEL LIST -->
+    <div class="panelList" id="channelList">
+      <div class="item" data-type="channel" data-id="#genel">
+        <div class="avatar">G</div><span>#genel</span>
+      </div>
+      <div class="item" data-type="channel" data-id="#sohbet">
+        <div class="avatar">S</div><span>#sohbet</span>
+      </div>
+    </div>
+
+    <!-- DM LIST -->
+    <div class="panelList" id="dmList">
+      <div class="dmHeader">
+        <button id="dmBackBtn">←</button>
+        <span>DM</span>
+      </div>
+
+      <div class="item" data-type="dm" data-id="@ornekuser">
+        <div class="avatar">O</div><span>@ornekuser</span>
+      </div>
+
+      <div id="supportDmAnchor"></div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="side-bottom" id="sideBottom">
+      <button id="supportBtn">Destek</button>
+      <button id="adminBtn">Admin Paneli</button>
+    </div>
+  </div>
+</div>
+
+<!-- KANAL MODAL -->
+<div id="channelModal" class="modal">
+  <div class="modal-box">
+    <h3>Kanal Oluştur</h3>
+    <input id="channelName" placeholder="Kanal adı">
+    <input id="channelNick" placeholder="#kanalnick">
+    <div class="modal-actions">
+      <button id="cancelChannelModal" class="secondary">İptal</button>
+      <button id="createChannelBtn">Oluştur</button>
+    </div>
+  </div>
+</div>
+
+<!-- DESTEK MODAL (APP İÇİ - USER) -->
+<div id="supportModal" class="modal">
+  <div class="modal-box">
+    <h3>Destek Talebi Oluştur</h3>
+    <input id="supportText" placeholder="Sorunun nedir? (tek seferde yaz)">
+    <input id="supportMail" placeholder="E-posta adresin">
+    <div class="modal-actions">
+      <button id="cancelSupportModal" class="secondary">İptal</button>
+      <button id="sendSupportBtn">Talebi Gönder</button>
+    </div>
+  </div>
+</div>
+
+<!-- DESTEK MODAL (LOGIN) -->
+<div id="loginSupportModal" class="modal">
+  <div class="modal-box">
+    <h3>Giriş Ekranı Destek</h3>
+    <input id="loginSupportMail" placeholder="E-posta adresin">
+    <input id="loginSupportText" placeholder="Sorunun nedir? (şifre unuttum vb.)">
+    <div class="modal-actions">
+      <button id="cancelLoginSupport" class="secondary">İptal</button>
+      <button id="sendLoginSupport">Talebi Gönder</button>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div id="registerModal" class="modal">
+  <div class="modal-box">
+    <h3>Yeni Hesap Oluştur</h3>
+    <input id="regUsername" placeholder="Kullanıcı adı (@kullanici)">
+    <input id="regMail" placeholder="E-posta">
+    <input id="regPass" type="password" placeholder="Şifre">
+    <input id="regPass2" type="password" placeholder="Şifre tekrar">
+    <div class="modal-actions">
+      <button id="cancelRegister" class="secondary">İptal</button>
+      <button id="createAccountBtn">Hesap Oluştur</button>
+    </div>
+    <p class="tiny muted">Not: Demo v1.0 — mail doğrulama yok. Mailini doğru yaz.</p>
+  </div>
+</div>
